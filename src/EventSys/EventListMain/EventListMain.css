@@ -1,0 +1,18 @@
+.EventListMain ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+  }
+  
+  .EventListMain__button-container {
+    max-width: 380px;
+    margin: 0 10px;
+  }
+  
+  .EventListMain__add-event-button {
+    margin: 0 auto 20px;
+  }
+  .EventListMain__add-event-button:hover {
+    background-color: #29862e;
+    color: white;
+  }

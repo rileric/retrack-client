@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    margin-left: 10px;
+    
+}
+
+form h2 {
+    color: white;
+}
+
+form label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: gray;
+    font-family: arial;
+  }
+  
+  form textarea {
+    height: 4.75rem;
+    width: 95%;
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  form input {
+      margin-bottom: 20px;
+  }
+
+  .saveButton {
+    
+    height: 30px;
+    width: 100px;
+  }
+ 

@@ -1,6 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {faPlus, faChevronLeft} from '@fortawesome/free-solid-svg-icons';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
+import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+library.add(faPlus, faChevronLeft);
+
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById('root')
+);
