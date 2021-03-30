@@ -12,9 +12,10 @@ import EventPageNav from './EventSys/EventPageNav/EventPageNav';
 import EventListNav from './EventSys/EventListNav/EventListNav';
 import EventPageMain from './EventSys/EventPageMain/EventPageMain';
 import EventListMain from './EventSys/EventListMain/EventListMain';
-import CircleButton from './CircleButton/CircleButton';
+import AuthNav from './LoginSys/login-helpers';
 
 import STORE from './dummy-store';
+import { useAuth0 } from '@auth0/auth0-react';
 let myDebug = console.log;
 
 
@@ -100,8 +101,9 @@ class App extends Component {
           <header className='App__header'>
             <h1>
               <Link to='/'>Retrack</Link>
-              <Link to='/add-event' className='App-header__add-event-button'>Add Event</Link>
+              <Link to='/add-event' className='App-header__add-event-button'>New Event</Link>
             </h1>
+            <AuthNav />
           </header>
           <main className='App__main'>{this.renderMainRoutes()}</main>
         </div>

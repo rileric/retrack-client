@@ -34,5 +34,5 @@ export default withRouter(AddTimeline);
 
 AddTimeline.propTypes = {
     history: PropTypes.object,
-    onAddFolder: PropTypes.func
+    onAddTimeline: PropTypes.func
 }

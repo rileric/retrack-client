@@ -55,7 +55,7 @@ class AddEvent extends React.Component {
 
     render() {
 
-        const eventTypeList = ['Movie', 'Game', 'Other']
+        const eventTypeList = ['Movie', 'Game', 'Book', 'Comics', 'Other']
         const eventTypeMenu = eventTypeList.map(
             (typeOption) => <option value={typeOption} key={typeOption}>{typeOption}</option>
         );

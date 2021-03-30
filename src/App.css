@@ -25,6 +25,8 @@
     padding-left: 16px;
     padding-top: 32px;
     text-shadow: 2px 1px 2px black;
+    display: flex;
+    flex-direction: row;
   }
   
   .App__header a {
