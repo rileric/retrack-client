@@ -4,13 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CircleButton from '../../CircleButton/CircleButton';
 import ApiContext from '../../ApiContext';
 import './EventListNav.css';
+import '../../App.css';
 
 export default class EventListNav extends Component {
 
     static contextType = ApiContext;
 
     render() {
-        const { timelines = [], events = [] } = this.context;
+        const { timelines = [] } = this.context;
 
         return (
             <div className='EventListNav'>
@@ -19,11 +20,8 @@ export default class EventListNav extends Component {
                         <li key={timeline.timeline_id}>
                             <NavLink
                                 className='EventListNav__timeline-link'
-                                to={`/timeline/${timeline.timeline_id}`}
+                                to={`/timelines/${timeline.timeline_id}`}
                             >
-                                <span className='EventListNav__num-events'>
-                                    {/* TODO count number of events in a timeline? */}
-                                </span>
                                 {timeline.timeline_name}
                             </NavLink>
                         </li>

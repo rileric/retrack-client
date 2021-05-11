@@ -3,6 +3,7 @@ import Event from '../Event/Event';
 import ApiContext from '../../ApiContext';
 import {findEvent} from '../events-helpers';
 import './EventPageMain.css';
+import '../../App.css';
 import PropTypes from 'prop-types';
 
 export default class EventPageMain extends Component {

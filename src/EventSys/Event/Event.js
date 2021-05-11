@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ApiContext from '../../ApiContext';
-import config from '../../config';
+// import config from '../../config';
 import './Event.css';
+import '../../App.css';
 import PropTypes from 'prop-types';
 
-let myDebug=console.log;
 
 export default class Event extends Component {
     static defaultProps = {
@@ -19,33 +17,55 @@ export default class Event extends Component {
         e.preventDefault();
         const event_id = this.props.event_id;
 
-        myDebug('HandleClickDelete for event: ', event_id);
+       console.log('HandleClickDelete for event: ', event_id);
+
+       /* NOTE: Currently not allowing users to delete any events, will be tied to login system
+       
+       fetch( `${config.API_ENDPOINT}/events/${event_id}`, {
+           method: "DELETE",
+           headers: {
+               "Content-Type": "application/json"
+           }
+       })
+       .then( res => {
+           if(!res.ok) {
+               return res.json().then(e => Promise.reject(e));
+           }
+       })
+       .then( () => {
+           this.props.onDeleteEvent(event_id);
+           this.context.deleteEvent(event_id);
+       })
+       .catch(error => {
+           console.error({error});
+       }); */
     }
 
     render() {
-        const { event_id, event_name, event_type, relevant_date } = this.props;
+        const {event_name, relevant_date } = this.props;
+        const formattedDate = (relevant_date) ? format(new Date(relevant_date), 'do MMM yyyy') : '';
 
         return (
             <div className='Event'>
                 <h2 className='Event__title'>
-                    {/* TODO add link to delve into Event details? */}
+                    {/* Possible feature: add link to delve into Event details */}
                     {event_name}
                 </h2>
+                {/* Delete button will be hidden in CSS file for the moment */}
                 <button
                     className='Event__delete'
                     type='button'
                     onClick={this.handleClickDelete}
                 >
-                    <FontAwesomeIcon icon='trash-alt' />
                     {' '}
                     Remove
                 </button>
-                <div className='Event__dates'>
-                    <div className='Event__dates-relevant'>
+                <div className='Event__date'>
+                    <div className='Event__date-relevant'>
                         Relevant date
                         {' '}
                         <span className='Date'>
-                            {format(new Date(relevant_date), 'MM/dd/yyyy')}
+                            {formattedDate}
                         </span>
                     </div>    
                 </div>

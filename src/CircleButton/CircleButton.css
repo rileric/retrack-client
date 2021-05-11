@@ -1,16 +1,16 @@
 .NavCircleButton {
     background-color: #cacaca;
-    border-radius: 30px;
+    border-radius: 2px;
     border: 0;
     color: black;
     display: block;
     font-size: 12px;
     font-weight: bold;
-    height: 60px;
+    height: 65px;
     padding: 8px;
     text-align: center;
     text-decoration: none;
-    width: 60px;
+    width: 65px;
   }
   
   a.NavCircleButton {

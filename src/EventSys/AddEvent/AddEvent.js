@@ -1,8 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import config from "../../config";
+import ApiContext from '../../ApiContext';
 import './AddEvent.css';
-
+import '../../App.css';
 
 class AddEvent extends React.Component {
 
@@ -16,11 +18,7 @@ class AddEvent extends React.Component {
             typeTouched: false,
         };
     }
-
-    handleSubmit(event) {
-        event.preventDefault();
-        console.log('Submitted Event', event.target);
-    }
+    static contextType = ApiContext;
 
     handleInputChange = (event) => {
         const inputName = event.target.name;
@@ -32,30 +30,70 @@ class AddEvent extends React.Component {
 
         if(inputName === 'event_name') {
             this.setState({
-            nameTouched: true
-            });
+                nameTouched: true
+            });       
         }
 
         if(inputName === 'event_type') {
             this.setState({
-            typeTouched: true
+                typeTouched: true
             });
         }
     }
 
     validateName() {
-        const trimName = this.state.noteName.trim();
+        const trimName = this.state.event_name.trim();
 
         if(this.state.nameTouched) {
             if(trimName.length === 0) {
-            return( "Name is required and cannot be whitespace.");
+                return( "Name is required and cannot be whitespace.");
             }
         }
     }
 
+    handleSubmit(event) {
+        event.preventDefault();
+        let eventName = this.state.event_name;
+        let eventType = this.state.event_type;
+        let relevantDate = this.state.relevant_date;
+        let eventOwnerId = this.context.user_id; 
+        const url = `${config.API_ENDPOINT}/events`;
+
+        const options = {
+            method: 'POST',
+            body: JSON.stringify({
+                event_name: eventName,
+                event_type: eventType,
+                relevant_date: relevantDate,
+                event_owner_id: eventOwnerId
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+
+        fetch( url, options)
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error('Something went wrong, please try again');
+                }
+                else {
+                    console.log('No issues with request!');
+                    return res.json();
+                }
+            })
+            .then( event => {
+                this.props.history.push('/');
+                this.context.AddEvent(event);
+            })
+            .catch( err => {
+                console.log('Error during AddEvent.js');
+            });
+    }
+
     render() {
 
-        const eventTypeList = ['Movie', 'Game', 'Book', 'Comics', 'Other']
+        const eventTypeList = ['Movie', 'Game', 'Book', 'Comic', 'Other']
         const eventTypeMenu = eventTypeList.map(
             (typeOption) => <option value={typeOption} key={typeOption}>{typeOption}</option>
         );
@@ -69,6 +107,7 @@ class AddEvent extends React.Component {
                 className='addEventName'
                 name='event_name'
                 id='event_name'
+                onChange={this.handleInputChange}
                 required
             />
 
@@ -84,9 +123,10 @@ class AddEvent extends React.Component {
                 className='addRelevantDate'
                 name='relevant_date'
                 id='relevant_date'
+                onChange={this.handleInputChange}
             />
 
-            <button type='submit' className='saveButton'>Save</button>
+            <button type='submit' className='saveButton' disabled={ this.validateName()}>Save</button>
         </form>
 
         )

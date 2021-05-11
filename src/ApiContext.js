@@ -6,6 +6,9 @@ export default React.createContext({
     timelineEvents: [],
     addTimeline: () => {},
     addEvent: () => {},
+    deleteEvent: () => {},
     addTimelineEvent: () => {},
+    deleteTimelineEvent: () => {},
+    userLogin: () => {},
     user_id: '1'
 });

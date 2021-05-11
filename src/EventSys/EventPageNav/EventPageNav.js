@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import CircleButton from '../../CircleButton/CircleButton';
 import ApiContext from '../../ApiContext';
-import {findEvent} from '../events-helpers';
 import PropTypes from 'prop-types';
 
 import './EventPageNav.css';
+import '../../App.css';
 
+// Currently this Component is used only in the AddEvent/Timeline/TimeEvent Forms
+// because there is no detailed Event Page
 export default class EventPageNav extends Component {
     static defaultProps = {
         history: {
@@ -19,9 +21,6 @@ export default class EventPageNav extends Component {
     static contextType = ApiContext;
 
     render() {
-        const { events, timelines} = this.context;
-        const { event_id } = this.props.match.params;
-        const timeline_event = findEvent(events, event_id) || {};
 
         return (
             <div className='EventPageNav'>
