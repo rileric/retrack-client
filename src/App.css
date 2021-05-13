@@ -34,6 +34,10 @@
   .App__header a {
     color: rgba(255,255,255,0.7);
   }
+
+  .App__header a:hover {
+    color: #7E57C2;
+  }
   
   .App__main {
     background-color: #2B343A;

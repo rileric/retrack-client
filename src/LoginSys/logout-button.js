@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useAuth0 } from '@auth0/auth0-react';
-import CircleButton from '../CircleButton/CircleButton';
+import NavButton from '../NavButton/NavButton';
 import ApiContext from '../ApiContext';
 
 const LogoutButton = () => {
@@ -18,13 +18,13 @@ const LogoutButton = () => {
     }
     //
     return (
-        <CircleButton
+        <NavButton
             tag='button'
             className='logout-btn'
             onClick={() => logout()}
         >
             Log Out
-        </CircleButton>
+        </NavButton>
     );
 };
 

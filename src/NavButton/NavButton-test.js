@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import CircleButton from './CircleButton';
+import NavButton from './NavButton';
 
-describe('CircleButton component', () => {
+describe('NavButton component', () => {
     const props = {
         tag: 'a',
         className: 'test-class-name',
@@ -11,13 +11,13 @@ describe('CircleButton component', () => {
         'data-other': 'test-other-prop'
     };
 
-    it('renders a button.CircleButton by default', () => {
-        const wrapper = shallow(<CircleButton />);
+    it('renders a button.NavButton by default', () => {
+        const wrapper = shallow(<NavButton />);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
     it('renders the circle button from props', () => {
-        const wrapper = shallow(<CircleButton {...props} />);
+        const wrapper = shallow(<NavButton {...props} />);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 });

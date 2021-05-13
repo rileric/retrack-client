@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
-import CircleButton from '../../CircleButton/CircleButton';
+import NavButton from '../../NavButton/NavButton';
 import ApiContext from '../../ApiContext';
 import {getEventsForTimeline} from '../events-helpers';
 import Event from '../Event/Event';
@@ -17,7 +17,7 @@ function ShowAddEventButton() {
         if(timeline_id) {
             return (
                 <div className='EventListMain__button-container'>
-                    <CircleButton
+                    <NavButton
                         tag={Link}
                         to={`/timelines/${timeline_id}/add-event`}
                         type='button'
@@ -26,7 +26,7 @@ function ShowAddEventButton() {
                         <FontAwesomeIcon icon='plus' />
                         Event
                         <br />
-                    </CircleButton>
+                    </NavButton>
                 </div>
             );
         }

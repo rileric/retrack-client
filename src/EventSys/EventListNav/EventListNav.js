@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import CircleButton from '../../CircleButton/CircleButton';
+import NavButton from '../../NavButton/NavButton';
 import ApiContext from '../../ApiContext';
 import './EventListNav.css';
 import '../../App.css';
@@ -28,7 +28,7 @@ export default class EventListNav extends Component {
                     )}
                 </ul>
                 <div className='EventListNav__button-wrapper'>
-                    <CircleButton
+                    <NavButton
                         tag={Link}
                         to='/add-timeline'
                         type='button'
@@ -37,7 +37,7 @@ export default class EventListNav extends Component {
                         <FontAwesomeIcon icon='plus' />
                         <br />
                         Timeline
-                    </CircleButton>
+                    </NavButton>
                 </div>
             </div>
         );

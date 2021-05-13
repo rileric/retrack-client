@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import CircleButton from '../../CircleButton/CircleButton';
+import NavButton from '../../NavButton/NavButton';
 import ApiContext from '../../ApiContext';
 import PropTypes from 'prop-types';
 
@@ -24,7 +24,7 @@ export default class EventPageNav extends Component {
 
         return (
             <div className='EventPageNav'>
-                <CircleButton
+                <NavButton
                     tag='button'
                     role='link'
                     onClick={() => this.props.history.goBack()}
@@ -33,7 +33,7 @@ export default class EventPageNav extends Component {
                     <FontAwesomeIcon icon='chevron-left' />
                     <br />
                     Back
-                </CircleButton>
+                </NavButton>
             </div>
         );
     }
