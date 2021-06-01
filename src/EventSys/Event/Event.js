@@ -43,7 +43,13 @@ export default class Event extends Component {
 
     render() {
         const {event_name, relevant_date } = this.props;
-        const formattedDate = (relevant_date) ? format(new Date(relevant_date), 'do MMM yyyy') : '';
+        let formattedDate = '';
+        // Special date handling because the YYYY-MM-DD format causes timezone issues
+        if( relevant_date) {
+            let date = relevant_date.substring(0,10).split('-');
+            let splitDate = date[1] + '-' + date[2] + '-' + date[0];
+            formattedDate = format(new Date(splitDate), 'do MMM yyyy');
+        }
 
         return (
             <div className='Event'>

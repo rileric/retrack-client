@@ -59,6 +59,7 @@ class AddEvent extends React.Component {
         let eventOwnerId = this.context.user_id; 
         const url = `${config.API_ENDPOINT}/events`;
 
+        let convert
         const options = {
             method: 'POST',
             body: JSON.stringify({
