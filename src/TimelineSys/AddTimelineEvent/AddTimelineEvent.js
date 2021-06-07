@@ -5,6 +5,7 @@ import ApiContext from '../../ApiContext';
 import config from '../../config';
 import './AddTimelineEvent.css';
 import '../../App.css';
+import { getEventsForTimeline } from '../../EventSys/events-helpers';
 
 class AddTimelineEvent extends React.Component {
 
@@ -32,6 +33,16 @@ class AddTimelineEvent extends React.Component {
 
     validateEvent() {
         const eventSelected = this.state.event_id;
+        const eventsInTimeline = getEventsForTimeline(this.context.timelineEvents, this.state.timeline_id, this.state.event_id);
+        let eventAlreadyIn = false;
+        eventsInTimeline.map(timelineEvent => {
+            if(timelineEvent.event_id == eventSelected) {
+                eventAlreadyIn = true;
+            }
+        })
+        if(eventAlreadyIn) {
+            return ("Event is already in this timeline");
+        }
 
         if(eventSelected === 'none' || !this.state.choiceTouched) { // default value for the dropdown menu
             return ("Event is required");

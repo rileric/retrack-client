@@ -77,6 +77,28 @@ class App extends Component {
     });
   }
 
+  handleDeleteEvent = event_id => {
+    this.setState({
+      events: this.state.events.filter(event => event.event_id !== event_id),
+      timelineEvents: this.state.timelineEvents.filter(timelineEvent => timelineEvent.event_id !== event_id)
+    });
+  }
+
+  handleDeleteTimeline = timeline_id => {
+    this.setState({
+      timelines: this.state.timelines.filter(timeline => timeline.timeline_id !== timeline_id),
+      timelineEvents: this.state.timelineEvents.filter(timelineEvent => timelineEvent.timeline_id !== timeline_id)
+    });
+  }
+
+
+  handleDeleteTimelineEvent = (timeline_id ,event_id) => {
+    /* this.setState({
+      timelineEvents: this.state.timelineEvents.filter(timelineEvent => (timelineEvent.timeline_id !== timeline_id) && (timelineEvent.event_id !== event_id))
+    }); */
+    this.fetchTimelineEvents();
+  }
+
   handleAddTimelineEvent = () => {
     /* this.setState({
       timelineEvents: [...this.state.timelineEvents, newTimelineEvent]
@@ -176,6 +198,9 @@ class App extends Component {
       AddTimeline: this.handleAddTimeline,
       AddEvent: this.handleAddEvent,
       AddTimelineEvent: this.handleAddTimelineEvent,
+      DeleteEvent: this.handleDeleteEvent,
+      DeleteTimeline: this.handleDeleteTimeline,
+      DeleteTimelineEvent: this.handleDeleteTimelineEvent,
       userLogin: this.handleLogin,
       user_id: this.state.user_id
     };

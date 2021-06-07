@@ -4,7 +4,7 @@ export const findEvent = (events=[], event_id) => (
 );
 
 export const findTimeline = (timelines=[], timeline_id) => (
-    timelines.find(timeline => timeline.timeline_id === timeline_id)
+    timelines.find(timeline => timeline.timeline_id === parseInt(timeline_id))
 );
 
 export const getEventsForTimeline = (timelineEvents=[], timeline_id, events=[]) => (
@@ -13,3 +13,4 @@ export const getEventsForTimeline = (timelineEvents=[], timeline_id, events=[]) 
         ? events
         : timelineEvents.filter(timelineEvent => parseInt(timelineEvent.timeline_id) === parseInt(timeline_id))
 );
+

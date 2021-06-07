@@ -16,7 +16,7 @@ const LogoutButton = () => {
         userId = loginContext.user_id;
         loginContext.userLogin(isAuthenticated, userId);
     }
-    //
+    
     return (
         <NavButton
             tag='button'

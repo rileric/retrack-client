@@ -3,8 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import NavButton from '../../NavButton/NavButton';
 import ApiContext from '../../ApiContext';
 import PropTypes from 'prop-types';
-
-import './EventPageNav.css';
 import '../../App.css';
 
 // Currently this Component is used only in the AddEvent/Timeline/TimeEvent Forms

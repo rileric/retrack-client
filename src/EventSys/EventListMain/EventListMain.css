@@ -88,7 +88,7 @@
     font-size: 12px;
     padding: 2px 10px;
     margin: 3px 2px 0;
-    display: none; /* should be inline-block when deletions are allowed */
+    display: inline-block;
     flex-wrap: wrap;
     justify-content: center;
     background: #40484D;
@@ -114,3 +114,24 @@
     border: 7px solid transparent;
     /* border-right: 7px solid #333C42; */
 }
+
+.Event__remove {
+    --note-button-height: 32px;
+    background-color: #041a3a;
+    border: 0;
+    color: rgba(255,255,255,0.7);
+    float: right;
+    font-size: 12px;
+    height: var(--note-button-height);
+    position: relative;
+    top: calc((var(--note-button-height) ) * -1);
+    transform-origin: right bottom;
+    transform: rotate(-90deg);
+    width: calc(var(--note-height));
+  }
+  .Event__remove:hover {
+    background-color: #bd0909;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+  }

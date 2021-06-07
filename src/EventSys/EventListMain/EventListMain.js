@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import NavButton from '../../NavButton/NavButton';
 import ApiContext from '../../ApiContext';
-import {getEventsForTimeline} from '../events-helpers';
+import {getEventsForTimeline, findTimeline} from '../events-helpers';
 import Event from '../Event/Event';
 import './EventListMain.css';
 import '../../App.css';
@@ -46,8 +46,13 @@ export default class EventListMain extends Component {
 
     render() {
         const { timeline_id } = this.props.match.params;
-        const { timelineEvents=[], events=[] } = this.context;
+        const { timelineEvents=[], events=[], timelines=[] } = this.context;
         const eventsForTimeline = getEventsForTimeline(timelineEvents, timeline_id, events);
+        let timeline_owner = '1';
+        if(timeline_id) {
+            let timelineObj = findTimeline(timelines, timeline_id);
+            timeline_owner = timelineObj.tl_owner_id;
+        }
 
         return (
             <section className='EventListMain'>
@@ -59,7 +64,10 @@ export default class EventListMain extends Component {
                                 event_id={event.event_id}
                                 event_name={event.event_name}
                                 event_type={event.event_type}
+                                event_owner_id = {event.event_owner_id}
                                 relevant_date={event.relevant_date}
+                                timeline_id = {timeline_id}
+                                timeline_owner = {timeline_owner}
                             />
                         </li> 
                     )}

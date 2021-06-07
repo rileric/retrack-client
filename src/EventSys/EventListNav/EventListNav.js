@@ -3,7 +3,6 @@ import { NavLink, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NavButton from '../../NavButton/NavButton';
 import ApiContext from '../../ApiContext';
-import './EventListNav.css';
 import '../../App.css';
 
 export default class EventListNav extends Component {

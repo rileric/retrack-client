@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import config from "../../config";
 import ApiContext from '../../ApiContext';
-import './AddEvent.css';
 import '../../App.css';
 
 class AddEvent extends React.Component {
