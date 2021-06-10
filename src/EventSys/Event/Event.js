@@ -65,10 +65,9 @@ export default class Event extends Component {
         const {event_name, relevant_date, event_owner_id, timeline_owner } = this.props;
         let formattedDate = '';
         // Special date handling because the YYYY-MM-DD format causes timezone issues
-        if( relevant_date) {
+        if( relevant_date ) {
             let date = relevant_date.substring(0,10).split('-');
-            let splitDate = date[1] + '-' + date[2] + '-' + date[0];
-            formattedDate = format(new Date(splitDate), 'do MMM yyyy');
+            formattedDate = format(new Date(date), 'do MMM yyyy');
         }
 
         return (
