@@ -1,3 +1,3 @@
 export default {
-    API_ENDPOINT: `https://evening-stream-66310.herokuapp.com`
+    API_ENDPOINT: `https://pacific-bastion-87991.herokuapp.com`
 }
